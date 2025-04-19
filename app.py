@@ -51,16 +51,23 @@ print(est2.summary())
 
 @app.route("/predict")
 def predict():
-    x = float(request.args.get("x", 0))
-    w = int(request.args.get("w",0))
-    X = np.array([[w,x]])
-    y_pred = model.predict([[X]])[0]
+    try:
+      x = float(request.args.get("x", 0))
+      w = int(request.args.get("w",0))
+      X = np.array([[w,x]])
+      y_pred = model.predict([[X]])[0]
     
-    # Log prediction
-    with open("output.txt", "w") as f:
-        f.write(f"Input w: {w}, x: {x}\nPrediction: {y_pred:2f}\n")
+      # Log prediction
+      with open("output.txt", "w") as f:
+          f.write(f"Input w: {w}, x: {x}\nPrediction: {y_pred:2f}\n")
     
-    return jsonify({"w" :w, "x": x, "prediction": y_pred})
+      return jsonify({"w" :w, "x": x, "prediction": y_pred})
+
+    except Exception as e:
+        print("Error in /predict:", e)
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+      
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
