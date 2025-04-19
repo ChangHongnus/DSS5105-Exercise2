@@ -34,5 +34,6 @@
 ![image](https://github.com/user-attachments/assets/cf22c82f-fb4d-448a-811b-740dc635164b)
 
 # Question 2c)
+![image](https://github.com/user-attachments/assets/b11bbc4a-cae5-4380-b9cc-e15d07a28559)
 
 
