@@ -14,13 +14,13 @@
 # Containerization and GitHub Codespaces:
 # Containerization improves consistency, reproducibility and portability by putting the code and all dependencies in a portable container. Using GitHUb Codespaces allows user to run and test evertything in the cloud without installing anything locally, makeing development and collaboration easier.
 
-#________________________________________________________________________________________________________________________
+________________________________________________________________________________________________________________________
 
 # Question 1a)
 # Use linear regression to estimate the parameters α, τ , and β by python.
 ![image](https://github.com/user-attachments/assets/7049d58d-2f01-4c8d-8821-98f09eacf1d7)
 
-#Results
+# Results
 
 ![image](https://github.com/user-attachments/assets/153803f6-4856-403a-bffc-9135af816a3c)
 
@@ -33,9 +33,13 @@
 
 # Question 1c)
 # Briefly explain under what assumptions ˆτ can be given a causal interpretation.
-# Ans: The estimated treatment effect τ̂ can be interpreted causally if, given a corporation’s sustainability spending X, the decision to participate in the carbon offset program (W) is independent of potential stakeholder engagement scores (Y), all values of X include both treated and untreated firms, the relationship between Y, W, and X is correctly specified in the model, and each firm’s outcome Y is only affected by its own treatment status W.
+# Ans: The estimated treatment effect τ̂ can be interpreted causally if, 
+# 1) given a corporation’s sustainability spending X, the decision to participate in the carbon offset program (W) is independent of potential stakeholder engagement scores (Y).
+# 2) all values of X include both treated and untreated firms.
+# 3) the relationship between Y, W, and X is correctly specified in the model.
+# 4) each firm’s outcome Y is only affected by its own treatment status W.
 
-#__________________________________________________________________________________________________________________________________________________
+_________________________________________________________________________________________________________________________________________________
 
 # Question 2a)
 # Set up a GitHub repository (or use the one you already configured in Exercise #1), and configure a Dockerfile to containerize your development environment in GitHub Codespaces. You do not need to install anything locally.
@@ -60,7 +64,16 @@
 #  • Xi = 20 (corporation spent $20,000 on sustainability initiatives)
 #   Report the predicted engagement score ˆYi returned by your API
 
-# Ans:Predicted engagement score = 117
+# Ans:
+# Enable Codespaces by clicking on the <>Code button, select the "Codespaces" tab, and click "Create codespace on main".
+![image](https://github.com/user-attachments/assets/7206122a-f12a-45c9-8443-5c1740f2e1c5)
+# Run Code in Codespaces:
+# 1) Under Terminal, key in " docker build -t model-api ."
+![image](https://github.com/user-attachments/assets/6db3e15c-ef61-46e1-9670-a74931309a21)
+# 2) Key in " docker run -p 5000:5000 model-api" to run the container.
+![image](https://github.com/user-attachments/assets/29d5e7a7-137b-459c-b82b-47bdab7a3b78)
+# 3) With the container still running, open a new bash and key in " curl "http://localhost:5000/predict?w=1&x=20" " to get the predicted engagement score.
+# Predicted engagement score = 117
 ![image](https://github.com/user-attachments/assets/b11bbc4a-cae5-4380-b9cc-e15d07a28559)
 
 
